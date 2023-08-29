@@ -4,7 +4,7 @@ const UserRole = require("../auto/RoleUser");
 const connectDB = async () => {
   try {
     mongoose
-      .connect(process.env.MONGODB_URL, {
+      .connect(process.env.MONGODB_URI, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
       })
