@@ -1,0 +1,21 @@
+{
+  "name": "hospital-management-sc",
+  "version": "1.0.0",
+  "description": "to fully ease the hospital workflow",
+  "main": "index.js",
+  "scripts": {
+    "build": "cd server && npm install && cd ../client && npm install && npm run build",
+    "start": "node server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Adzman1999/hospital-management-sc.git"
+  },
+  "author": "Adzman Abdulsamad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Adzman1999/hospital-management-sc/issues"
+  },
+  "homepage": "https://github.com/Adzman1999/hospital-management-sc#readme"
+}
