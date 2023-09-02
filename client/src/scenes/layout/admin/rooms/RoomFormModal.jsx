@@ -9,6 +9,8 @@ import {
   Stack,
   TextField,
   Typography,
+  Tooltip,
+  IconButton,
 } from "@mui/material";
 import SnackbarMessage from "../../../../components/SnackbarMessage";
 import ModalComponent from "../../../../components/ModalComponent";
@@ -78,7 +80,7 @@ const RoomFormModal = () => {
       <ModalComponent
         open={open}
         icon={
-          <Tooltip title='Add Doctor'>
+          <Tooltip title='Add Room/Bedding'>
             <IconButton
               sx={{ zIndex: 100 }}
               onClick={handleOpen}

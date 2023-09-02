@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import {
   Card,
+  IconButton,
   InputAdornment,
   Stack,
   TextField,
+  Tooltip,
   Typography,
 } from "@mui/material";
 import SnackbarMessage from "../../../../components/SnackbarMessage";
@@ -78,7 +80,7 @@ const CommonSupplyFormModal = () => {
       <ModalComponent
         open={open}
         icon={
-          <Tooltip title='Add Doctor'>
+          <Tooltip title='Add Common Supply'>
             <IconButton
               sx={{ zIndex: 100 }}
               onClick={handleOpen}

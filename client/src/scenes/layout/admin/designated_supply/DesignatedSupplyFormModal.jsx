@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import {
   Autocomplete,
   Card,
+  IconButton,
   InputAdornment,
   Stack,
   TextField,
+  Tooltip,
   Typography,
 } from "@mui/material";
 import SnackbarMessage from "../../../../components/SnackbarMessage";
@@ -152,23 +154,22 @@ const DesignatedSupplyFormModal = () => {
       <ModalComponent
         open={open}
         icon={
-          <Tooltip title='Add Doctor'>
+          <Tooltip title='Add Designated Supply'>
             <IconButton
               sx={{ zIndex: 100 }}
               onClick={handleOpen}
               size='small'
               variant='outlined'>
               <Add
-            color='primary'
-            sx={{
-              fontSize: 40,
-              border: "4px solid #90CAF9",
-              borderRadius: "50%",
-            }}
-          />
+                color='primary'
+                sx={{
+                  fontSize: 40,
+                  border: "4px solid #90CAF9",
+                  borderRadius: "50%",
+                }}
+              />
             </IconButton>
-          </Tooltip> 
-          
+          </Tooltip>
         }
         mdWidth={800}>
         <Card
