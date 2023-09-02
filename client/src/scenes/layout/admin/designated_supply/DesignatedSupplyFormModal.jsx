@@ -151,10 +151,14 @@ const DesignatedSupplyFormModal = () => {
 
       <ModalComponent
         open={open}
-        handleOpen={handleOpen}
-        title='Add Designated Supply'
         icon={
-          <Add
+          <Tooltip title='Add Doctor'>
+            <IconButton
+              sx={{ zIndex: 100 }}
+              onClick={handleOpen}
+              size='small'
+              variant='outlined'>
+              <Add
             color='primary'
             sx={{
               fontSize: 40,
@@ -162,8 +166,11 @@ const DesignatedSupplyFormModal = () => {
               borderRadius: "50%",
             }}
           />
+            </IconButton>
+          </Tooltip> 
+          
         }
-        mdWidth={500}>
+        mdWidth={800}>
         <Card
           elevation={0}
           sx={{ background: "transparent" }}
