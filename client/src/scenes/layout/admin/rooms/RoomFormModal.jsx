@@ -100,7 +100,7 @@ const RoomFormModal = () => {
         mdWidth={800}>
         <Card
           elevation={0}
-          sx={{ background: "transparent" }}
+          sx={{ background: "transparent", width: "350px" }}
           component='form'
           onSubmit={handleCreateRoom}>
           <Stack spacing={2} mb={1} mt={2}>

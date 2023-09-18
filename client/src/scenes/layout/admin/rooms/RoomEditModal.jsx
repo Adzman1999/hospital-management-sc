@@ -1,8 +1,16 @@
 import React, { useState } from "react";
-import { Card, Stack, TextField, Typography } from "@mui/material";
+import {
+  Button,
+  Card,
+  IconButton,
+  Stack,
+  TextField,
+  Tooltip,
+  Typography,
+} from "@mui/material";
 import SnackbarMessage from "../../../../components/SnackbarMessage";
 import ModalComponent from "../../../../components/ModalComponent";
-import { Update } from "@mui/icons-material";
+import { EditOutlined, Update } from "@mui/icons-material";
 import SubmitBox from "../../../../components/SubmitBox";
 import { updateRoom } from "../../../../actions/admin/RoomsAction";
 
@@ -69,13 +77,17 @@ const RoomEditModal = ({ index }) => {
 
       <ModalComponent
         open={open}
-        handleOpen={handleOpen}
-        title='Edit Room'
-        icon={<Update color='primary' />}
+        buttonName={
+          <Tooltip title='Edit Room'>
+            <IconButton onClick={handleOpen}>
+              <EditOutlined color='success' />
+            </IconButton>
+          </Tooltip>
+        }
         mdWidth={500}>
         <Card
           elevation={0}
-          sx={{ background: "transparent" }}
+          sx={{ background: "transparent", width: "350px" }}
           component='form'
           onSubmit={handleUpdateRoom}>
           <Stack spacing={2} mb={1} mt={2}>

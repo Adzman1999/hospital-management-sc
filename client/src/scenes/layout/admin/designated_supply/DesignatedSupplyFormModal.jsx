@@ -174,7 +174,7 @@ const DesignatedSupplyFormModal = () => {
         mdWidth={800}>
         <Card
           elevation={0}
-          sx={{ background: "transparent" }}
+          sx={{ background: "transparent", width: "400px" }}
           component='form'
           onSubmit={handleCreateDesignatedSupply}>
           <Stack spacing={2} mb={1} mt={2}>

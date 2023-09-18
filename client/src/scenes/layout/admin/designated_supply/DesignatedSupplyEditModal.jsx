@@ -2,14 +2,16 @@ import React, { useEffect, useState } from "react";
 import {
   Autocomplete,
   Card,
+  IconButton,
   InputAdornment,
   Stack,
   TextField,
+  Tooltip,
   Typography,
 } from "@mui/material";
 import SnackbarMessage from "../../../../components/SnackbarMessage";
 import ModalComponent from "../../../../components/ModalComponent";
-import { Update } from "@mui/icons-material";
+import { EditOutlined, Update } from "@mui/icons-material";
 import SubmitBox from "../../../../components/SubmitBox";
 import { updateDesignatedSupply } from "../../../../actions/admin/DesignatedSupply";
 import {
@@ -151,13 +153,17 @@ const DesignatedSupplyEditModal = ({ index }) => {
 
       <ModalComponent
         open={open}
-        handleOpen={handleOpen}
-        title='Edit Designated Supply'
-        icon={<Update color='primary' />}
+        buttonName={
+          <Tooltip title='Edit Designated Supply'>
+            <IconButton onClick={handleOpen}>
+              <EditOutlined color='success' />
+            </IconButton>
+          </Tooltip>
+        }
         mdWidth={500}>
         <Card
           elevation={0}
-          sx={{ background: "transparent" }}
+          sx={{ background: "transparent", width: "400px" }}
           component='form'
           onSubmit={handleUpdateDesignatedSupply}>
           <Stack spacing={2} mb={1} mt={2}>

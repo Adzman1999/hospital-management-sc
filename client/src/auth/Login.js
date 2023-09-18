@@ -13,7 +13,7 @@ import { login } from "../actions/UserAction";
 import { useNavigate } from "react-router-dom";
 import SnackbarMessage from "../components/SnackbarMessage";
 import Logo from "../assets/logo.png";
-import { KeyRounded, CloseRounded } from "@mui/icons-material";
+import { KeyRounded, ArrowBack } from "@mui/icons-material";
 import ModalComponent from "../components/ModalComponent";
 
 const Login = () => {
@@ -82,197 +82,197 @@ const Login = () => {
           height: "100vh",
         }}>
         <ModalComponent open={open} mdWidth={800}>
-          <Stack direction='row-reverse'>
-            <IconButton onClick={handleClose}>
-              <CloseRounded />
+          <Box p={2} sx={{ position: "relative" }}>
+            <IconButton
+              onClick={handleClose}
+              sx={{ position: "absolute", top: 2, left: 2 }}>
+              <ArrowBack />
             </IconButton>
-          </Stack>
-          <Typography
-            sx={{ color: "#1565C0" }}
-            textAlign='center'
-            mt={2}
-            mb={2}
-            variant='body1'
-            fontWeight={600}>
-            Note:{" "}
-            <span style={{ fontSize: "15px", color: "#000" }}>
-              {" "}
-              Copy this credential for testing purposes{" "}
-            </span>
-          </Typography>
+            <Typography
+              sx={{ color: "#1565C0" }}
+              textAlign='center'
+              mb={2}
+              mt={5}
+              variant='body1'
+              fontWeight={600}>
+              Note:
+              <span style={{ fontSize: "15px", color: "#000" }}>
+                Copy this credential for testing purposes
+              </span>
+            </Typography>
 
-          <Stack
-            direction='row'
-            justifyContent='space-between'
-            alignItems='center'>
-            <Box>
-              <Typography
-                mb={1}
-                variant='body1'
-                sx={{ fontWeight: 600, color: "#1565C0" }}>
-                ADMIN
-              </Typography>
-              <Stack spacing={0.5}>
-                <Stack direction='row' alignItems='center' spacing={1}>
-                  <Typography
-                    variant='body2'
-                    sx={{ fontWeight: 600, color: "#1565C0" }}>
-                    username:
-                  </Typography>
-                  <Typography variant='body2'>admin</Typography>
+            <Stack
+              direction='row'
+              justifyContent='space-between'
+              alignItems='center'>
+              <Box>
+                <Typography
+                  mb={1}
+                  variant='body1'
+                  sx={{ fontWeight: 600, color: "#000" }}>
+                  ADMIN
+                </Typography>
+                <Stack spacing={0.5}>
+                  <Stack direction='row' alignItems='center' spacing={1}>
+                    <Typography
+                      variant='body2'
+                      sx={{ fontWeight: 600, color: "#1565C0" }}>
+                      username:
+                    </Typography>
+                    <Typography variant='body2'>admin</Typography>
+                  </Stack>
+
+                  <Stack direction='row' alignItems='center' spacing={1}>
+                    <Typography
+                      variant='body2'
+                      sx={{ fontWeight: 600, color: "#1565C0" }}>
+                      Password:
+                    </Typography>
+                    <Typography variant='body2'>admin</Typography>
+                  </Stack>
                 </Stack>
 
-                <Stack direction='row' alignItems='center' spacing={2}>
-                  <Typography
-                    variant='body2'
-                    sx={{ fontWeight: 600, color: "#1565C0" }}>
-                    Password:
-                  </Typography>
-                  <Typography variant='body2'>admin</Typography>
-                </Stack>
-              </Stack>
-
-              <Typography
-                mb={1}
-                mt={1}
-                variant='body1'
-                sx={{ fontWeight: 600, color: "#1565C0" }}>
-                NURSE
-              </Typography>
-              <Stack spacing={0.5}>
-                <Stack direction='row' alignItems='center' spacing={1}>
-                  <Typography
-                    variant='body2'
-                    sx={{ fontWeight: 600, color: "#1565C0" }}>
-                    username:
-                  </Typography>
-                  <Typography variant='body2'>nurse</Typography>
-                </Stack>
-                <Stack direction='row' alignItems='center' spacing={2}>
-                  <Typography
-                    variant='body2'
-                    sx={{ fontWeight: 600, color: "#1565C0" }}>
-                    Password:
-                  </Typography>
-                  <Typography variant='body2'>nurse</Typography>
-                </Stack>
-              </Stack>
-
-              <Typography
-                mb={1}
-                mt={1}
-                variant='body1'
-                sx={{ fontWeight: 600, color: "#1565C0" }}>
-                LAB PERSONNEL
-              </Typography>
-              <Stack spacing={0.5}>
-                <Stack direction='row' alignItems='center' spacing={1}>
-                  <Typography
-                    variant='body2'
-                    sx={{ fontWeight: 600, color: "#1565C0" }}>
-                    username:
-                  </Typography>
-                  <Typography variant='body2'>labpersonnel</Typography>
+                <Typography
+                  mb={1}
+                  mt={1}
+                  variant='body1'
+                  sx={{ fontWeight: 600, color: "#000" }}>
+                  NURSE
+                </Typography>
+                <Stack spacing={0.5}>
+                  <Stack direction='row' alignItems='center' spacing={1}>
+                    <Typography
+                      variant='body2'
+                      sx={{ fontWeight: 600, color: "#1565C0" }}>
+                      username:
+                    </Typography>
+                    <Typography variant='body2'>nurse</Typography>
+                  </Stack>
+                  <Stack direction='row' alignItems='center' spacing={1}>
+                    <Typography
+                      variant='body2'
+                      sx={{ fontWeight: 600, color: "#1565C0" }}>
+                      Password:
+                    </Typography>
+                    <Typography variant='body2'>nurse</Typography>
+                  </Stack>
                 </Stack>
 
-                <Stack direction='row' alignItems='center' spacing={2}>
-                  <Typography
-                    variant='body2'
-                    sx={{ fontWeight: 600, color: "#1565C0" }}>
-                    Password:
-                  </Typography>
-                  <Typography variant='body2'>labpersonnel</Typography>
-                </Stack>
-              </Stack>
-            </Box>
+                <Typography
+                  mb={1}
+                  mt={1}
+                  variant='body1'
+                  sx={{ fontWeight: 600, color: "#000" }}>
+                  LAB PERSONNEL
+                </Typography>
+                <Stack spacing={0.5}>
+                  <Stack direction='row' alignItems='center' spacing={1}>
+                    <Typography
+                      variant='body2'
+                      sx={{ fontWeight: 600, color: "#1565C0" }}>
+                      username:
+                    </Typography>
+                    <Typography variant='body2'>labpersonnel</Typography>
+                  </Stack>
 
-            <Box>
-              <Typography
-                mb={1}
-                mt={1}
-                variant='body1'
-                sx={{ fontWeight: 600, color: "#1565C0" }}>
-                PHARMACIST
-              </Typography>
-              <Stack spacing={0.5}>
-                <Stack direction='row' alignItems='center' spacing={1}>
-                  <Typography
-                    variant='body2'
-                    sx={{ fontWeight: 600, color: "#1565C0" }}>
-                    username:
-                  </Typography>
-                  <Typography variant='body2'>pharmacist</Typography>
+                  <Stack direction='row' alignItems='center' spacing={1}>
+                    <Typography
+                      variant='body2'
+                      sx={{ fontWeight: 600, color: "#1565C0" }}>
+                      Password:
+                    </Typography>
+                    <Typography variant='body2'>labpersonnel</Typography>
+                  </Stack>
                 </Stack>
+              </Box>
 
-                <Stack direction='row' alignItems='center' spacing={2}>
-                  <Typography
-                    variant='body2'
-                    sx={{ fontWeight: 600, color: "#1565C0" }}>
-                    Password:
-                  </Typography>
-                  <Typography variant='body2'>pharmacist</Typography>
-                </Stack>
-              </Stack>
+              <Box>
+                <Typography
+                  mb={1}
+                  mt={1}
+                  variant='body1'
+                  sx={{ fontWeight: 600, color: "#000" }}>
+                  PHARMACIST
+                </Typography>
+                <Stack spacing={0.5}>
+                  <Stack direction='row' alignItems='center' spacing={1}>
+                    <Typography
+                      variant='body2'
+                      sx={{ fontWeight: 600, color: "#1565C0" }}>
+                      username:
+                    </Typography>
+                    <Typography variant='body2'>pharmacist</Typography>
+                  </Stack>
 
-              <Typography
-                mt={1}
-                mb={1}
-                variant='body1'
-                sx={{ fontWeight: 600, color: "#1565C0" }}>
-                RADIOLOGIST
-              </Typography>
-              <Stack spacing={0.5}>
-                <Stack direction='row' alignItems='center' spacing={1}>
-                  <Typography
-                    variant='body2'
-                    sx={{ fontWeight: 600, color: "#1565C0" }}>
-                    username:
-                  </Typography>
-                  <Typography variant='body2'>radiologist</Typography>
-                </Stack>
-
-                <Stack direction='row' alignItems='center' spacing={2}>
-                  <Typography
-                    variant='body2'
-                    sx={{ fontWeight: 600, color: "#1565C0" }}>
-                    Password:
-                  </Typography>
-                  <Typography variant='body2'>radiologist</Typography>
-                </Stack>
-              </Stack>
-
-              <Typography
-                mt={1}
-                mb={1}
-                variant='body1'
-                sx={{ fontWeight: 600, color: "#1565C0" }}>
-                BILLING
-              </Typography>
-              <Stack spacing={0.5}>
-                <Stack direction='row' alignItems='center' spacing={1}>
-                  <Typography
-                    variant='body2'
-                    sx={{ fontWeight: 600, color: "#1565C0" }}>
-                    username:
-                  </Typography>
-                  <Typography variant='body2'>accountant</Typography>
+                  <Stack direction='row' alignItems='center' spacing={1}>
+                    <Typography
+                      variant='body2'
+                      sx={{ fontWeight: 600, color: "#1565C0" }}>
+                      Password:
+                    </Typography>
+                    <Typography variant='body2'>pharmacist</Typography>
+                  </Stack>
                 </Stack>
 
-                <Stack direction='row' alignItems='center' spacing={2}>
-                  <Typography
-                    variant='body2'
-                    sx={{ fontWeight: 600, color: "#1565C0" }}>
-                    Password:
-                  </Typography>
-                  <Typography variant='body2'>accountant</Typography>
-                </Stack>
-              </Stack>
-            </Box>
-            {/* LEFT SECTION
-             */}
-          </Stack>
+                <Typography
+                  mt={1}
+                  mb={1}
+                  variant='body1'
+                  sx={{ fontWeight: 600, color: "#000" }}>
+                  RADIOLOGIST
+                </Typography>
+                <Stack spacing={0.5}>
+                  <Stack direction='row' alignItems='center' spacing={1}>
+                    <Typography
+                      variant='body2'
+                      sx={{ fontWeight: 600, color: "#1565C0" }}>
+                      username:
+                    </Typography>
+                    <Typography variant='body2'>radiologist</Typography>
+                  </Stack>
 
-          {/* <Stack spacing={1}>
+                  <Stack direction='row' alignItems='center' spacing={1}>
+                    <Typography
+                      variant='body2'
+                      sx={{ fontWeight: 600, color: "#1565C0" }}>
+                      Password:
+                    </Typography>
+                    <Typography variant='body2'>radiologist</Typography>
+                  </Stack>
+                </Stack>
+
+                <Typography
+                  mt={1}
+                  mb={1}
+                  variant='body1'
+                  sx={{ fontWeight: 600, color: "#000" }}>
+                  BILLING
+                </Typography>
+                <Stack spacing={0.5}>
+                  <Stack direction='row' alignItems='center' spacing={1}>
+                    <Typography
+                      variant='body2'
+                      sx={{ fontWeight: 600, color: "#1565C0" }}>
+                      username:
+                    </Typography>
+                    <Typography variant='body2'>accountant</Typography>
+                  </Stack>
+
+                  <Stack direction='row' alignItems='center' spacing={1}>
+                    <Typography
+                      variant='body2'
+                      sx={{ fontWeight: 600, color: "#1565C0" }}>
+                      Password:
+                    </Typography>
+                    <Typography variant='body2'>accountant</Typography>
+                  </Stack>
+                </Stack>
+              </Box>
+              {/* LEFT SECTION
+               */}
+            </Stack>
+
+            {/* <Stack spacing={1}>
             <Stack spacing={1}>
               <Typography
                 variant='body1'
@@ -287,7 +287,7 @@ const Login = () => {
                 </Typography>
                 <Typography variant='body2'>admin</Typography>
               </Stack>
-              <Stack direction='row' alignItems='center' spacing={2}>
+              <Stack direction='row' alignItems='center' spacing={1}>
                 <Typography
                   variant='body2'
                   sx={{ fontWeight: 600, color: "#1565C0" }}>
@@ -311,7 +311,7 @@ const Login = () => {
                 </Typography>
                 <Typography variant='body2'>nurse</Typography>
               </Stack>
-              <Stack direction='row' alignItems='center' spacing={2}>
+              <Stack direction='row' alignItems='center' spacing={1}>
                 <Typography
                   variant='body2'
                   sx={{ fontWeight: 600, color: "#1565C0" }}>
@@ -321,6 +321,7 @@ const Login = () => {
               </Stack>
             </Stack>
           </Stack> */}
+          </Box>
         </ModalComponent>
         <Card
           elevation={0}

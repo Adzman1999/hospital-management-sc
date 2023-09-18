@@ -9,10 +9,13 @@ import {
   Modal,
   Fade,
   Card,
+  Divider,
 } from "@mui/material";
 import BackBtn from "../../../../components/BackBtn";
-import { File } from "phosphor-react";
+import { File, MagnifyingGlass } from "phosphor-react";
 import { addAttachmentFile } from "../../../../actions/PatientAction";
+import { Sort } from "@mui/icons-material";
+import PatientMedicalPdfView from "./PatientMedicalPdfView";
 
 const PatientHistoryModal = ({ handleMenuClose, index }) => {
   const [open, setOpen] = useState(false);
@@ -22,6 +25,7 @@ const PatientHistoryModal = ({ handleMenuClose, index }) => {
   const handleClose = () => {
     setOpen(false);
   };
+
   const [err, setErr] = useState(null);
   const [succeed, setSucceed] = useState(null);
 
@@ -51,7 +55,7 @@ const PatientHistoryModal = ({ handleMenuClose, index }) => {
     setFileName("");
     setDate("");
     setFile({ url: "" });
-  }
+  };
 
   const covertToBase64 = (file) => {
     return new Promise((resolve, reject) => {
@@ -93,13 +97,12 @@ const PatientHistoryModal = ({ handleMenuClose, index }) => {
     <>
       <Button
         sx={{ textTransform: "capitalize" }}
-        variant="outlined"
-        size="small"
+        variant='outlined'
+        size='small'
         onClick={() => {
           handleOpen();
           handleMenuClose();
-        }}
-      >
+        }}>
         Add Attachment
       </Button>
       <Modal
@@ -109,14 +112,13 @@ const PatientHistoryModal = ({ handleMenuClose, index }) => {
           alignItems: "center",
           backdropFilter: "blur(13px)",
         }}
-        aria-labelledby="transition-modal-title"
-        aria-describedby="transition-modal-description"
+        aria-labelledby='transition-modal-title'
+        aria-describedby='transition-modal-description'
         open={open}
         closeAfterTransition
         BackdropProps={{
           timeout: 500,
-        }}
-      >
+        }}>
         <Fade in={open}>
           <Card
             elevation={3}
@@ -125,10 +127,9 @@ const PatientHistoryModal = ({ handleMenuClose, index }) => {
               boxShadow: 0,
               background: "transparent",
               zIndex: 2000,
-            }}
-          >
+            }}>
             <Card
-              className="sub-bg"
+              className='sub-bg'
               sx={{
                 boxShadow: 0,
                 pr: 2,
@@ -136,61 +137,54 @@ const PatientHistoryModal = ({ handleMenuClose, index }) => {
                 pt: 0,
                 pb: 2,
                 m: 2,
-              }}
-            >
+              }}>
               <SnackbarMessage
                 message={err}
                 open={snackbarError}
                 handleClose={setSnackBarError}
-                severity="error"
+                severity='error'
               />
               <SnackbarMessage
                 message={succeed}
                 open={snackbarSuccess}
                 handleClose={setSnackBarSuccess}
-                severity="success"
+                severity='success'
               />
               <BackBtn handleClose={handleCancel} />
-              <Stack
-                // direction="row" spacing={2}
-                mt={6}
-              >
+              <Stack direction='row' spacing={2} mt={6}>
                 <Stack
                   spacing={2}
                   p={2}
-                  component="form"
-                  onSubmit={handleSubmitPatient}
-                >
+                  component='form'
+                  onSubmit={handleSubmitPatient}>
                   <Stack
-                    direction="row"
-                    alignItems="center"
-                    justifyContent="space-between"
-                  >
-                    <Typography variant="body1" sx={{ fontWeight: 600 }}>
+                    direction='row'
+                    alignItems='center'
+                    justifyContent='space-between'>
+                    <Typography variant='body1' sx={{ fontWeight: 600 }}>
                       Add Attachment
                     </Typography>
                     <Button
-                      variant="outlined"
+                      variant='outlined'
                       sx={{ textTransform: "capitalize" }}
-                      onClick={handleAddMore}
-                    >
+                      onClick={handleAddMore}>
                       Add More
                     </Button>
                   </Stack>
-                  <Stack direction="row" spacing={2}>
+                  <Stack direction='row' spacing={2}>
                     <TextField
                       required
                       fullWidth
-                      size="small"
-                      accept=".jpeg, .png, .jpg, .pdf"
-                      type="file"
-                      label="Set Attachment"
-                      variant="outlined"
+                      size='small'
+                      accept='.jpeg, .png, .jpg, .pdf'
+                      type='file'
+                      label='Set Attachment'
+                      variant='outlined'
                       onChange={(e) => handleImage(e)}
                       InputProps={{
                         startAdornment: (
                           <InputAdornment
-                            position="start"
+                            position='start'
                             sx={{ p: 0, m: 0 }}
                           />
                         ),
@@ -199,16 +193,16 @@ const PatientHistoryModal = ({ handleMenuClose, index }) => {
                     <TextField
                       required
                       fullWidth
-                      size="small"
-                      type="date"
-                      label="Set Date"
-                      variant="outlined"
+                      size='small'
+                      type='date'
+                      label='Set Date'
+                      variant='outlined'
                       value={date}
                       onChange={(e) => setDate(e.target.value)}
                       InputProps={{
                         startAdornment: (
                           <InputAdornment
-                            position="start"
+                            position='start'
                             sx={{ p: 0, m: 0 }}
                           />
                         ),
@@ -218,11 +212,11 @@ const PatientHistoryModal = ({ handleMenuClose, index }) => {
                   <TextField
                     required
                     fullWidth
-                    size="small"
-                    type="text"
-                    label="Enter Description"
+                    size='small'
+                    type='text'
+                    label='Enter Description'
                     value={fileName}
-                    variant="outlined"
+                    variant='outlined'
                     onChange={(e) => setFileName(e.target.value)}
                   />
 
@@ -236,95 +230,100 @@ const PatientHistoryModal = ({ handleMenuClose, index }) => {
                     />
                   ) : (
                     <Stack
-                      direction="row"
-                      justifyContent="center"
-                      alignItems="center"
-                    >
+                      direction='row'
+                      justifyContent='center'
+                      alignItems='center'>
                       <Stack
-                        direction="row"
+                        direction='row'
                         spacing={1}
-                        alignItems="center"
-                        justifyContent="center"
+                        alignItems='center'
+                        justifyContent='center'
                         sx={{
                           border: "2px dashed gray",
                           p: 1,
                           width: "100%",
                           height: "20vh",
-                        }}
-                      >
+                        }}>
                         <File style={{ fontSize: 20 }} />
                         <Typography
-                          textTransform="uppercase"
-                          variant="body1"
-                          fontWeight={500}
-                        >
+                          textTransform='uppercase'
+                          variant='body1'
+                          fontWeight={500}>
                           Preview
                         </Typography>
                       </Stack>
                     </Stack>
                   )}
-                  <Stack direction="row-reverse">
+                  <Stack direction='row-reverse'>
                     <Button
-                      variant="contained"
+                      variant='contained'
                       sx={{ textTransform: "capitalize" }}
-                      type="submit"
-                    >
+                      type='submit'>
                       Add to Attachment List
                     </Button>
                   </Stack>
                 </Stack>
 
-                {/* <Divider orientation="vertical" flexItem /> */}
+                <Divider orientation='vertical' flexItem />
                 {/* ////////////////////// */}
 
-                {/* <Stack spacing={2} p={2}>
-                  <Stack direction="row" alignItems="center" spacing={2}> */}
-                {/* <Button  variant='outlined' sx={{width: '37px', maxWidth: '37px', minWidth: '37px', }}><Sort/> </Button>
-                 */}
-                {/* <TextField
-                      size="small"
-                      placeholder="Search here..."
-                      type="text"
-                      
+                <Stack spacing={2} p={2}>
+                  {/* <Stack direction='row' alignItems='center' spacing={2}>
+                    <Button
+                      variant='outlined'
+                      sx={{
+                        width: "37px",
+                        maxWidth: "37px",
+                        minWidth: "37px",
+                      }}>
+                      <Sort />
+                    </Button>
+
+                    <TextField
+                      size='small'
+                      placeholder='Search here...'
+                      type='text'
                       InputProps={{
                         endAdornment: (
-                          <InputAdornment position="end">
-                            <Button size="large">
+                          <InputAdornment position='end'>
+                            <Button size='large'>
                               <MagnifyingGlass fontSize={"15px"} />
                             </Button>
                           </InputAdornment>
                         ),
                       }}
-                    /> */}
-                {/* </Stack>
-                  <Stack
-                    direction="row"
-                    justifyContent="center"
-                    alignItems="center"
-                  >
-                    <Stack
-                      direction="row"
-                      spacing={1}
-                      alignItems="center"
-                      justifyContent="center"
-                      sx={{
-                        border: "2px dashed gray",
-                        p: 1,
-                        width: "100%",
-                        height: "30vh",
-                      }}
-                    >
-                      <File style={{ fontSize: 20 }} />
-                      <Typography
-                        textTransform="uppercase"
-                        variant="body1"
-                        fontWeight={500}
-                      >
-                        Preview
+                    />
+                  </Stack> */}
+                  <Typography variant='body1' sx={{ fontWeight: 600 }}>
+                    Medical History Record
+                  </Typography>
+                  {index.attachment.map((att) => (
+                    <Stack spacing={1}>
+                      <object
+                        data={att.file}
+                        style={{
+                          maxWidth: "100%",
+                          maxHeight: "300px",
+                        }}
+                      />
+                      <Stack
+                        direction='row'
+                        justifyContent='space-between'
+                        alignItems='center'>
+                        <Typography
+                          variant='body2'
+                          color='primary'
+                          sx={{ fontWeight: 600 }}>
+                          {att.date}
+                        </Typography>
+                        <PatientMedicalPdfView att={att} />
+                      </Stack>
+                      <Typography variant='body2' sx={{ fontWeight: 500 }}>
+                        {att.fileName}
                       </Typography>
                     </Stack>
-                  </Stack>
-                </Stack> */}
+                  ))}
+                </Stack>
               </Stack>
             </Card>
           </Card>

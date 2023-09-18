@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-import { EastRounded, InfoOutlined, PersonOutlined, SettingsOutlined } from "@mui/icons-material";
+import {
+  EastRounded,
+  InfoOutlined,
+  PersonOutlined,
+  SettingsOutlined,
+} from "@mui/icons-material";
 import {
   AppBar,
   Box,
@@ -21,7 +26,7 @@ import AdminMenu from "../scenes/layout/admin/AdminMenu";
 import { HospitalState } from "../context/HospitalProvider";
 import NurseMenu from "../scenes/layout/nurse/NurseMenu";
 import BillingFormModal from "../scenes/layout/billing/BillingFormModal";
-import Logo from "../assets/logo.png"
+import Logo from "../assets/logo.png";
 import PatientTypeOfAdmission from "../scenes/layout/nurse/patient/PatientTypeOfAdmission";
 import PatientTestFormModal from "../scenes/layout/laboratory/patient_test/PatientTestFormModal";
 import XrayResultFormModal from "../scenes/layout/radiology/xray_result/XrayResultFormModal";
@@ -63,9 +68,11 @@ const Header = ({ setValue }) => {
               alignItems: "center",
               gap: 2,
             }}>
-            <img src={Logo} style={{width: '100px', objectFit: 'cover'}} alt='logo'/>
-
-            
+            <img
+              src={Logo}
+              style={{ width: "100px", objectFit: "cover" }}
+              alt='logo'
+            />
           </Box>
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <>
@@ -120,7 +127,7 @@ const Header = ({ setValue }) => {
               </a>
             </Menu> */}
 
-            <Tooltip title='Open Setting'>
+            <Tooltip title='Open About'>
               <IconButton
                 className='btn-no-bg'
                 size='large'
@@ -129,15 +136,19 @@ const Header = ({ setValue }) => {
                 <InfoOutlined fontSize='small' />
               </IconButton>
             </Tooltip>
-              <Button
+            <Button
               variant='outlined'
-              startIcon={<EastRounded style={{fontSize: '15px'}} />}
-                href='/'
-                size='small'
-                onClick={handleLogout}
-                sx={{textTransform: 'capitalize', textDecoration: "none", marginLeft: '1.3rem' }}>
-                Logout
-              </Button>
+              startIcon={<EastRounded style={{ fontSize: "15px" }} />}
+              href='/'
+              size='small'
+              onClick={handleLogout}
+              sx={{
+                textTransform: "capitalize",
+                textDecoration: "none",
+                marginLeft: "1.3rem",
+              }}>
+              Logout
+            </Button>
           </Box>
         </Toolbar>
       </AppBar>

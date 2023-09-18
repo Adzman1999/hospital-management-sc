@@ -1,16 +1,18 @@
 import React, { useState } from "react";
 import {
   Card,
+  IconButton,
   InputAdornment,
   Stack,
   TextField,
+  Tooltip,
   Typography,
 } from "@mui/material";
 import SnackbarMessage from "../../../../components/SnackbarMessage";
 import ModalComponent from "../../../../components/ModalComponent";
 import SubmitBox from "../../../../components/SubmitBox";
 import { updateCommonSupply } from "../../../../actions/admin/CommonSupplyAction";
-import { Update } from "@mui/icons-material";
+import { EditOutlined, Update } from "@mui/icons-material";
 
 const CommonSupplyEditModal = ({ index }) => {
   const [open, setOpen] = useState(false);
@@ -78,13 +80,16 @@ const CommonSupplyEditModal = ({ index }) => {
 
       <ModalComponent
         open={open}
-        handleOpen={handleOpen}
-        title='Edit Common Supply'
-        icon={<Update color='primary' />}
-        mdWidth={500}>
+        buttonName={
+          <Tooltip title='Edit Common Supply'>
+            <IconButton onClick={handleOpen}>
+              <EditOutlined color='success' />
+            </IconButton>
+          </Tooltip>
+        }>
         <Card
           elevation={0}
-          sx={{ background: "transparent" }}
+          sx={{ background: "transparent", width: "400px" }}
           component='form'
           onSubmit={handleUpdateCommonSupply}>
           <Stack spacing={2} mb={1} mt={2}>

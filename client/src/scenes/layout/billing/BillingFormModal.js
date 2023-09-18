@@ -130,6 +130,7 @@ const BillingFormModal = () => {
     (acc, item) => acc + item.consultationFee,
     0
   );
+  let attendingPhysician = doctorFee.map((att) => att.attendingPhysician);
   let totalDue =
     (totalPrice || 0) +
     (allDoctorFee || 0) +
@@ -147,20 +148,18 @@ const BillingFormModal = () => {
 
   let charge = hosPlan === "Insurance" ? (100 * totalDue) / 100 - 20 : totalDue;
   let discount =
-    (hosPlan === "Insurance" && `With ${healthInsurance} insurance(20%)`) ||
+    (hosPlan === "Insurance" && `With ${healthInsurance} Insurance(20%)`) ||
     (hosPlan === "Sponsors" && `Sponsored by ${sponsorName}`) ||
     "Self-Pay";
-
   return (
     <>
-      <Tooltip title="Add Billing">
+      <Tooltip title='Add Billing'>
         <IconButton
           sx={{ zIndex: 100 }}
           onClick={handleOpen}
-          className="btn-no-bg"
-          size="small"
-          variant="outlined"
-        >
+          className='btn-no-bg'
+          size='small'
+          variant='outlined'>
           <AddRounded />
         </IconButton>
       </Tooltip>
@@ -172,14 +171,13 @@ const BillingFormModal = () => {
           alignItems: "center",
           backdropFilter: "blur(13px)",
         }}
-        aria-labelledby="transition-modal-title"
-        aria-describedby="transition-modal-description"
+        aria-labelledby='transition-modal-title'
+        aria-describedby='transition-modal-description'
         open={open}
         closeAfterTransition
         BackdropProps={{
           timeout: 500,
-        }}
-      >
+        }}>
         <Fade in={open}>
           {/* <SnackbarMessage
             message={err}
@@ -193,21 +191,20 @@ const BillingFormModal = () => {
               width: { xs: "100%", md: 600 },
               background: "transparent",
               zIndex: 2000,
-            }}
-          >
+            }}>
             <Card
               sx={{
                 p: 2,
                 display: openSuccessBilledOut === true ? "block" : "none",
-              }}
-            >
-              <Stack spacing={2} alignItems="center" justifyContent="center">
-                <Typography color="green" sx={{ fontWeight: 600 }}>
+              }}>
+              <Stack spacing={2} alignItems='center' justifyContent='center'>
+                <Typography color='green' sx={{ fontWeight: 600 }}>
                   Patient successfully billed out!
                 </Typography>
-                <Stack spacing={2} direction="row" alignItems="center">
+                <Stack spacing={2} direction='row' alignItems='center'>
                   <Typography>Click</Typography>
                   <BillingPrintModal
+                    attendingPhysician={attendingPhysician}
                     datePaid={datePaid}
                     patientName={patientName}
                     xray={xray}
@@ -233,22 +230,21 @@ const BillingFormModal = () => {
                 </Stack>
               </Stack>
             </Card>
-            <Card sx={{ p: 2 }} component="form" onSubmit={handleCreateBilling}>
+            <Card sx={{ p: 2 }} component='form' onSubmit={handleCreateBilling}>
               <Stack spacing={2} mb={1} mt={2}>
                 <Typography
-                  color="primary"
-                  variant="h5"
-                  sx={{ fontWeight: 600, p: 0, m: 0 }}
-                >
+                  color='primary'
+                  variant='h5'
+                  sx={{ fontWeight: 600, p: 0, m: 0 }}>
                   Add Billing
                 </Typography>
-                <Stack spacing={2} direction="row">
+                <Stack spacing={2} direction='row'>
                   <Autocomplete
                     sx={{ p: 0, m: 0 }}
                     fullWidth
-                    size="small"
+                    size='small'
                     autoHighlight
-                    id="highlights-demo"
+                    id='highlights-demo'
                     options={searchData}
                     onChange={(e, value) => handleData(value)}
                     renderInput={(params) => (
@@ -256,8 +252,8 @@ const BillingFormModal = () => {
                         <TextField
                           sx={{ p: 0, m: 0 }}
                           {...params}
-                          label="Search Patients..."
-                          margin="normal"
+                          label='Search Patients...'
+                          margin='normal'
                           required
                         />
                       </>
@@ -266,112 +262,111 @@ const BillingFormModal = () => {
                   <TextField
                     required
                     fullWidth
-                    size="small"
-                    type="date"
-                    label="Set Date Paid"
-                    variant="outlined"
+                    size='small'
+                    type='date'
+                    label='Set Date Paid'
+                    variant='outlined'
                     onChange={(e) => setDatePaid(e.target.value)}
                     InputProps={{
                       startAdornment: (
-                        <InputAdornment position="start" sx={{ p: 0, m: 0 }} />
+                        <InputAdornment position='start' sx={{ p: 0, m: 0 }} />
                       ),
                     }}
                   />
                 </Stack>
 
-                <Stack spacing={2} direction="row" alignItems="center">
+                <Stack spacing={2} direction='row' alignItems='center'>
                   <TextField
                     fullWidth
-                    size="small"
-                    type="number"
-                    label="Medicine Total Price"
+                    size='small'
+                    type='number'
+                    label='Medicine Total Price'
                     value={totalPrice || 0}
-                    variant="standard"
+                    variant='standard'
                     onChange={(e, value) => handleData(value)}
                   />
 
                   <TextField
                     fullWidth
-                    size="small"
-                    type="number"
-                    label="X-ray Total Price"
+                    size='small'
+                    type='number'
+                    label='X-ray Total Price'
                     value={xray || 0}
-                    variant="standard"
+                    variant='standard'
                     onChange={(e, value) => handleData(value)}
                   />
                 </Stack>
-                <Stack spacing={2} direction="row" alignItems="center">
+                <Stack spacing={2} direction='row' alignItems='center'>
                   <TextField
                     fullWidth
-                    size="small"
-                    type="number"
+                    size='small'
+                    type='number'
                     label="Doctor's Fee"
                     value={allDoctorFee || 0}
-                    variant="standard"
+                    variant='standard'
                     onChange={(e, value) => handleData(value)}
                   />
                   <TextField
                     fullWidth
-                    size="small"
-                    type="number"
-                    label="Room Total Price"
+                    size='small'
+                    type='number'
+                    label='Room Total Price'
                     value={room || 0}
-                    variant="standard"
+                    variant='standard'
                     onChange={(e, value) => handleData(value)}
                   />
                 </Stack>
-                <Stack spacing={2} alignItems="center" direction="row">
+                <Stack spacing={2} alignItems='center' direction='row'>
                   <TextField
                     fullWidth
-                    size="small"
-                    type="number"
-                    label="Swab Test Price"
+                    size='small'
+                    type='number'
+                    label='Swab Test Price'
                     value={swabTestPrice || 0}
-                    variant="standard"
+                    variant='standard'
                     onChange={(e, value) => handleData(value)}
                   />
                   <TextField
                     fullWidth
-                    size="small"
-                    type="number"
-                    label="Urine Test Price"
+                    size='small'
+                    type='number'
+                    label='Urine Test Price'
                     value={urineTestPrice || 0}
-                    variant="standard"
+                    variant='standard'
                     onChange={(e, value) => handleData(value)}
                   />
                 </Stack>
-                <Stack spacing={2} alignItems="center" direction="row">
+                <Stack spacing={2} alignItems='center' direction='row'>
                   <TextField
                     fullWidth
-                    size="small"
-                    type="number"
-                    label="Blood Test Price"
+                    size='small'
+                    type='number'
+                    label='Blood Test Price'
                     value={bloodTestPrice || 0}
-                    variant="standard"
+                    variant='standard'
                     onChange={(e, value) => handleData(value)}
                   />
                   <TextField
                     fullWidth
-                    size="small"
-                    type="text"
-                    label="Hospitalization Plan"
+                    size='small'
+                    type='text'
+                    label='Hospitalization Plan'
                     value={discount}
-                    variant="standard"
+                    variant='standard'
                     // onChange={(e, value) => handleData(value)}
                   />
                 </Stack>
-                <Stack spacing={1} alignItems="center" direction="row-reverse">
-                  <Typography variant="body2">PHP{charge}</Typography>
-                  <Typography variant="body2" sx={{ fontWeight: 600 }}>
+                <Stack spacing={1} alignItems='center' direction='row-reverse'>
+                  <Typography variant='body2'>PHP{charge}</Typography>
+                  <Typography variant='body2' sx={{ fontWeight: 600 }}>
                     Total Due:
                   </Typography>
                 </Stack>
 
                 <Stack
-                  direction="row"
-                  alignItems="center"
-                  justifyContent="space-between"
-                >
+                  direction='row'
+                  alignItems='center'
+                  justifyContent='space-between'>
                   <Button
                     onClick={() => {
                       handleClose();
@@ -386,22 +381,20 @@ const BillingFormModal = () => {
                       setSponsorName("");
                       setDatePaid("");
                     }}
-                    variant="contained"
+                    variant='contained'
                     sx={{
                       textTransform: "capitalize",
                       boxShadow: 0,
-                    }}
-                  >
+                    }}>
                     Close
                   </Button>
                   <Button
-                    type="submit"
-                    variant="contained"
+                    type='submit'
+                    variant='contained'
                     sx={{
                       textTransform: "capitalize",
                       boxShadow: 0,
-                    }}
-                  >
+                    }}>
                     Pay
                   </Button>
                 </Stack>
