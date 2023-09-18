@@ -127,7 +127,7 @@ const Header = ({ setValue }) => {
               </a>
             </Menu> */}
 
-            <Tooltip title='Open About'>
+            {/* <Tooltip title='Open About'>
               <IconButton
                 className='btn-no-bg'
                 size='large'
@@ -135,7 +135,7 @@ const Header = ({ setValue }) => {
                 aria-haspopup='true'>
                 <InfoOutlined fontSize='small' />
               </IconButton>
-            </Tooltip>
+            </Tooltip> */}
             <Button
               variant='outlined'
               startIcon={<EastRounded style={{ fontSize: "15px" }} />}

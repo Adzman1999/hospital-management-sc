@@ -267,7 +267,21 @@ const PatientHistoryModal = ({ handleMenuClose, index }) => {
                 <Divider orientation='vertical' flexItem />
                 {/* ////////////////////// */}
 
-                <Stack spacing={2} p={2}>
+                <Stack
+                  spacing={2}
+                  p={2}
+                  sx={{
+                    maxHeight: "400px",
+                    overflowX: { xs: "shown", md: "hidden" },
+                    height: "100%",
+                    "::-webkit-scrollbar ": {
+                      width: "3px",
+                      height: { xs: "3px", md: "0px" },
+                    },
+                    "::-webkit-scrollbar-thumb": {
+                      backgroundColor: "#1565c08f",
+                    },
+                  }}>
                   {/* <Stack direction='row' alignItems='center' spacing={2}>
                     <Button
                       variant='outlined'
@@ -298,7 +312,12 @@ const PatientHistoryModal = ({ handleMenuClose, index }) => {
                     Medical History Record
                   </Typography>
                   {index.attachment.map((att) => (
-                    <Stack spacing={1}>
+                    <Stack
+                      spacing={1}
+                      sx={{
+                        width: "350px",
+                        maxWidth: "350px",
+                      }}>
                       <object
                         data={att.file}
                         style={{
