@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import SnackbarMessage from "../../../../components/SnackbarMessage";
 import SubmitBox from "../../../../components/SubmitBox";
 import ModalComponent from "../../../../components/ModalComponent";
-import { AddPhotoAlternateOutlined, EditOutlined, Update } from "@mui/icons-material";
+import {
+  AddPhotoAlternateOutlined,
+  EditOutlined,
+  Update,
+} from "@mui/icons-material";
 import {
   Card,
   Divider,
@@ -127,7 +131,6 @@ const PositionEditModal = ({
 
       <ModalComponent
         open={open}
-        icon={<Update color='primary' />}
         icon={
           <Tooltip title={position}>
             <IconButton
@@ -137,13 +140,11 @@ const PositionEditModal = ({
               variant='outlined'>
               <EditOutlined size='small' color='success' />
             </IconButton>
-          </Tooltip> 
-          
+          </Tooltip>
         }>
         <Card
-
           elevation={0}
-          sx={{ background: "transparent", width: '800px' }}
+          sx={{ background: "transparent", width: "800px" }}
           component='form'
           onSubmit={handleCreateAdmin}>
           <Stack spacing={2} mb={1} mt={2}>
@@ -154,6 +155,7 @@ const PositionEditModal = ({
               <Stack spacing={1}>
                 <TextField
                   sx={{ width: "150px" }}
+                  value={index.pic}
                   onChange={handleImage}
                   id='pic'
                   size='small'

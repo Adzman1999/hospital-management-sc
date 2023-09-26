@@ -54,7 +54,7 @@ const PositionFormModal = ({ roles, formTitle, CreatedSuccessMessage }) => {
   const [birthdate, setBirthdate] = useState("");
   const [age, setAge] = useState(0);
   const [sex, setSex] = useState("");
-  const [role, setRole] = useState(roles);
+  const role = roles;
 
   const handleImage = (e) => {
     var reader = new FileReader();
@@ -102,8 +102,7 @@ const PositionFormModal = ({ roles, formTitle, CreatedSuccessMessage }) => {
       setAddress,
       setBirthdate,
       setAge,
-      setSex,
-      setRole
+      setSex
     );
   };
 
@@ -132,16 +131,15 @@ const PositionFormModal = ({ roles, formTitle, CreatedSuccessMessage }) => {
               size='small'
               variant='outlined'>
               <Add
-            color='primary'
-            sx={{
-              fontSize: 40,
-              border: "4px solid #90CAF9",
-              borderRadius: "50%",
-            }}
-          />
+                color='primary'
+                sx={{
+                  fontSize: 40,
+                  border: "4px solid #90CAF9",
+                  borderRadius: "50%",
+                }}
+              />
             </IconButton>
-          </Tooltip> 
-          
+          </Tooltip>
         }
         mdWidth={800}>
         <Card

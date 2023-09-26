@@ -34,8 +34,7 @@ export const createNewPosition = async (
   setAddress,
   setBirthdate,
   setAge,
-  setSex,
-  setRole
+  setSex
 ) => {
   try {
     const config = {
@@ -79,7 +78,6 @@ export const createNewPosition = async (
     setBirthdate("");
     setAge("");
     setSex("");
-    setRole("");
     setDepartment("");
     handleClose();
     return data;
@@ -198,10 +196,11 @@ export const getNurse = async (setSearchResult1) => {
   }
 };
 
-
 export const searchRoles = async (search, setSearchResult1) => {
   try {
-    const { data } = await axios.get(`/api/admin/role/keyword?search=${search}`);
+    const { data } = await axios.get(
+      `/api/admin/role/keyword?search=${search}`
+    );
     setSearchResult1(data);
   } catch (error) {
     alert("error");

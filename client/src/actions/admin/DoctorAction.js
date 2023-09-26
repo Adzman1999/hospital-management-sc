@@ -17,7 +17,6 @@ export const createNewDoctor = async (
   birthdate,
   age,
   sex,
-  role,
   handleClose,
   setErr,
   setSucceed,
@@ -35,8 +34,7 @@ export const createNewDoctor = async (
   setAddress,
   setBirthdate,
   setAge,
-  setSex,
-  setRole
+  setSex
 ) => {
   try {
     const config = {
@@ -62,7 +60,7 @@ export const createNewDoctor = async (
         birthdate,
         age,
         sex,
-        role,
+        role: "doctor",
       },
       config
     );
@@ -82,10 +80,9 @@ export const createNewDoctor = async (
     setAge("");
     setSex("");
     setDepartment("");
-    setRole("");
     setSpecialist("");
     handleClose();
-    return data;
+    return await data;
   } catch (error) {
     handleSnackbarOpenError();
     setErr("No Data Created!!");
@@ -194,5 +191,3 @@ export const getDoctors = async (setSearchResult) => {
     alert("error");
   }
 };
-
-

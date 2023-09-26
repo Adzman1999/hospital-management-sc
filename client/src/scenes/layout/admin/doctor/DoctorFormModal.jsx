@@ -55,13 +55,12 @@ const DoctorFormModal = () => {
   const [birthdate, setBirthdate] = useState("");
   const [age, setAge] = useState(0);
   const [sex, setSex] = useState("");
-  const [role, setRole] = useState("doctor");
+  // const [role, setRole] = useState("");
 
   const handleImage = (e) => {
     var reader = new FileReader();
     reader.readAsDataURL(e.target.files[0]);
     reader.onload = () => {
-      console.log(reader.result);
       setPic(reader.result);
       setPicContainer(reader.result);
     };
@@ -86,7 +85,6 @@ const DoctorFormModal = () => {
       birthdate,
       age,
       sex,
-      role,
       handleClose,
       setErr,
       setSucceed,
@@ -104,8 +102,7 @@ const DoctorFormModal = () => {
       setAddress,
       setBirthdate,
       setAge,
-      setSex,
-      setRole
+      setSex
     );
   };
 
@@ -134,16 +131,15 @@ const DoctorFormModal = () => {
               size='small'
               variant='outlined'>
               <Add
-            color='primary'
-            sx={{
-              fontSize: 40,
-              border: "4px solid #90CAF9",
-              borderRadius: "50%",
-            }}
-          />
+                color='primary'
+                sx={{
+                  fontSize: 40,
+                  border: "4px solid #90CAF9",
+                  borderRadius: "50%",
+                }}
+              />
             </IconButton>
-          </Tooltip> 
-          
+          </Tooltip>
         }
         mdWidth={800}>
         <Card
@@ -336,7 +332,6 @@ const DoctorFormModal = () => {
                 size='small'
                 type='number'
                 label='Age'
-                aria-aria-readonly
                 variant='outlined'
                 onChange={(e) => setAge(e.target.value)}
               />
